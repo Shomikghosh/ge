@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import AllPagesPDFViewer from "./Components/pdfDisplay";
+import samplePDF from "./output-3.pdf";
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+
+import "./styles.css";
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <h4>Single Page</h4>
+      <SinglePagePDFViewer pdf={samplePDF} />
+
+      <hr /> */}
+
+      <h4>Pdf display</h4>
+      <div className="all-page-container">
+        <AllPagesPDFViewer pdf={samplePDF} />
+      </div>
+
+      <hr />
     </div>
   );
 }
-
-export default App;
