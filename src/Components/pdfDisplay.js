@@ -24,15 +24,20 @@ export default function SinglePage(props) {
   }
 
   const { pdf } = props;
-
+  const onPageClick = ({ dest, pageIndex, pageNumber }) => {
+    console.log('Clicked an item from page ' + dest+ '!')
+}
   return (
     <>
       <Document
         file={pdf}
         options={{ workerSrc: "/pdf.worker.js" }}
         onLoadSuccess={onDocumentLoadSuccess}
+        onItemClick={onPageClick}
       >
-        <Page pageNumber={pageNumber} />
+        <div className='highlighed-pdf'>
+        <Page pageNumber={pageNumber}        onItemClick={onPageClick} />
+        </div>
       </Document>
       <div>
         <p>
