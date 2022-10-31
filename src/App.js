@@ -12,7 +12,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import "./styles.css";
 
@@ -48,10 +49,14 @@ const [open, setOpen] =useState(false);
   const postfeedback=()=>{
     fetch("https://29q0i5.deta.dev/feedback?correct="+right+"&wrong="+wrong , {
       method: 'POST',
+      body:'',
        headers: {
         'Content-Type': 'application/json'
     },})
-    .then(response=>{})
+    .then(response=>{
+      setOpen(false);
+      toast("Feedback sent!")
+    })
     .catch((error) => console.error('Error:', error))
   }
 
@@ -61,6 +66,17 @@ const [open, setOpen] =useState(false);
       <SinglePagePDFViewer pdf={samplePDF} />
 
       <hr /> */}
+      <ToastContainer
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="dark" />
 
       <h4>Pdf display</h4>
       <div className="all-page-container">

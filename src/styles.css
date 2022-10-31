@@ -31,7 +31,7 @@
   }
   /* For pdf */
   .react-pdf__Page {
-    margin-top: 10px;
+    margin-top: 40vh;
    
   }
   .react-pdf__Page__textContent {
